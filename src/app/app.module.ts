@@ -15,6 +15,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { TokenInterceptorService } from './token/token-interceptor.service'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

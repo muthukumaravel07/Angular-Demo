@@ -11,13 +11,10 @@ import { Observable } from 'rxjs';
 
 export class LoginComponent implements OnInit
 {
-  users$: object;
+
+  
   constructor(private data: LoginService){}
-  ngOnInit(){
-    this.data.getUsers().subscribe(
-      data => this.users$ = data
-    ) 
-  }
+  ngOnInit(){}
   isEntered: boolean;
   hide = true;
 
@@ -29,15 +26,24 @@ export class LoginComponent implements OnInit
   passFormControl = new FormControl('', [
     Validators.required
   ]);
+  model = {
+    username: '',
+    password: ''
+  };
 
-  userInput: string;
-  userInput1: string;
-  messages=[''];
-  
-  send()
-  {
-    this.messages=['{\tusername: \'' + this.userInput + '\',\tpassword: \'' + this.userInput1 + '\'\t}'];
-    console.log(this.messages)
-    this.data.addHero(this.messages).subscribe(data=>console.log(this.messages));
+
+  sendReq() {
+    this.data.login(this.model.username, this.model.password)
+    .subscribe(success => {
+      if (success) {
+        console.log('Login successful');
+      } else {
+        console.log('Login failed');
+      }
+    });
   }
+
+
+  
+  
 }

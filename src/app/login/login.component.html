@@ -11,7 +11,7 @@
     <form #loginForm="ngForm" class="example-form">
       <mat-form-field class="example-full-width">
         
-        <input [(ngModel)]='userInput' name="uid" required matInput placeholder="Email" [formControl]="emailFormControl" >
+        <input [(ngModel)]='model.username' name="uid" required matInput placeholder="Email" [formControl]="emailFormControl" >
         
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid email address
@@ -22,7 +22,7 @@
       </mat-form-field>
       <mat-form-field class="example-full-width">
         
-        <input  [(ngModel)]='userInput1' name="password" matInput placeholder="Password" [formControl]="passFormControl" [type]="hide ? 'password' : 'text'" required>
+        <input  [(ngModel)]='model.password' name="password" matInput placeholder="Password" [formControl]="passFormControl" [type]="hide ? 'password' : 'text'" required>
         
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="passFormControl.hasError('required')">
@@ -30,27 +30,14 @@
         </mat-error>
       </mat-form-field>
       
-      <div *ngIf="!userInput || !userInput1">
-        <button [disabled]="loginForm.valid" mat-raised-button class="a" color="primary" (click)='send()'>Login</button>
+      <div *ngIf="!model.username || !model.password">
+        <button [disabled]="loginForm.valid" mat-raised-button class="a" color="primary" >Login</button>
       </div>
       
-      <div *ngIf="userInput && userInput1">
-        <button [disabled]="!loginForm.valid" mat-raised-button class="a" color="primary" (click)='send()'>Login</button>
+      <div *ngIf="model.username && model.password">
+        <button [disabled]="!loginForm.valid" mat-raised-button class="a" color="primary" (click)="sendReq()">Login</button>
       </div>
 
     </form> 
 </mat-card>  
 </div>
-
-<h1>Users</h1>
-<ul>
-  <li *ngFor="let user of users$">
-     {{ user.name }}
-  </li>
-</ul>
-
-
-
-
-
-
