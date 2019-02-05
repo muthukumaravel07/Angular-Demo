@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit
     {
       if (success) 
       {
-        this.cookieService.set( 'token', success.token );
+        console.log('Paramaters successfully passed and response received');
+        this.cookieService.set( 'jwtToken', success.token );
         this.router.navigate(['chat']);
       } 
       else 
@@ -59,6 +60,3 @@ export class LoginComponent implements OnInit
   }
 }
 
-/*.map(response => { 
-      console.log(response);
-    })*/

@@ -5,6 +5,8 @@ import {
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
+
+import { CookieService } from 'ngx-cookie-service';
 import {LoginService} from '../loginService/login.service';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
@@ -13,14 +15,15 @@ import {catchError} from 'rxjs/internal/operators';
   providedIn: 'root'
 })
 export class TokenInterceptorService implements HttpInterceptor {
-  constructor(public auth: LoginService) { 
+  constructor(public auth: LoginService, private cookieService: CookieService) { 
     console.log(' inside TIS ');
    }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (localStorage.getItem('jwtToken')) {
+    if (this.cookieService.get('jwtToken')) {
+      console.log('inside TIS (not first request)',this.cookieService.get('jwtToken'));
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ` + localStorage.getItem('jwtToken'),
+          Authorization: `Bearer ` + this.cookieService.get('jwtToken'),
           'Content-Type':  'application/json'
         }
       });
