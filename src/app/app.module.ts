@@ -21,6 +21,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './auth/auth.guard'
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
     component: LoginComponent},
   {
     path: 'chat',
-    component: ChatWindowComponent
+    component: ChatWindowComponent,
+    canActivate: [AuthGuard]
   }
 
 ];
@@ -62,7 +64,7 @@ const routes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true,
-    }, CookieService
+    }, CookieService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

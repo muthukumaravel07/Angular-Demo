@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit
       {
         console.log('Paramaters successfully passed and response received');
         this.cookieService.set( 'jwtToken', success.token );
-        this.router.navigate(['chat']);
+        this.router.navigate(['/chat']);
       } 
       else 
       {

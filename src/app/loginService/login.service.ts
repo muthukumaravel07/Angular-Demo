@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 import 'rxjs/add/operator/map';
 
 /* const httpOptions = {
@@ -19,7 +20,7 @@ import 'rxjs/add/operator/map';
 export class LoginService 
 {
   URL = 'http://172.20.126.27:3000/auth';
-  constructor(private http: HttpClient) 
+  constructor(private http: HttpClient, private cookie: CookieService) 
   {
 
   }
@@ -28,5 +29,12 @@ export class LoginService
     return this.http.post(this.URL, {'username': username, 'password': password});
   }
 
+  loggedIn() {
+    return !!this.cookie.get('jwtToken');
+  }
+
+  /* getUsesr(){
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  } */
   
 }

@@ -7,7 +7,7 @@ import { LoginService } from '../loginService/login.service';
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css']
 })
-export class ChatWindowComponent
+export class ChatWindowComponent /* implements OnInit */
 {
   title = 'projectCB';
   userInput: string;
@@ -18,6 +18,14 @@ export class ChatWindowComponent
   {
 
   }
+
+ /*  ngOnInit()
+  {
+    this.data.getUsesr().subscribe(
+      data => this.users$ = data
+    )
+
+  } */
   
 
   send(): void {
