@@ -20,7 +20,8 @@ export class TokenInterceptorService implements HttpInterceptor {
     if (localStorage.getItem('jwtToken')) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ` + localStorage.getItem('jwtToken')
+          Authorization: `Bearer ` + localStorage.getItem('jwtToken'),
+          'Content-Type':  'application/json'
         }
       });
     }
@@ -33,7 +34,7 @@ export class TokenInterceptorService implements HttpInterceptor {
   }
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
     // handle your auth error or rethrow
-    if (err.status === 400) {
+    if (err.status === 401) {
       // navigate /delete cookies or whatever
       console.log('handled error ' + err.status);
 

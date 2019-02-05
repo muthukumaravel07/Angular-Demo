@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../loginService/login.service';
 import { Observable } from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'login',
@@ -11,11 +12,22 @@ import { Observable } from 'rxjs';
 
 export class LoginComponent implements OnInit
 {
+  model = {
+    username: '',
+    password: ''
+  };
 
-  
-  constructor(private data: LoginService){}
-  ngOnInit(){}
+  constructor(private router: Router, private data: LoginService)
+  {
+
+  }
+  ngOnInit()
+  {
+
+  }
+
   isEntered: boolean;
+  
   hide = true;
 
   emailFormControl = new FormControl('', [
@@ -26,24 +38,23 @@ export class LoginComponent implements OnInit
   passFormControl = new FormControl('', [
     Validators.required
   ]);
-  model = {
-    username: '',
-    password: ''
-  };
 
-
-  sendReq() {
+  sendReq() 
+  {
     this.data.login(this.model.username, this.model.password)
-    .subscribe(success => {
-      if (success) {
-        console.log('Login successful');
-      } else {
+    .subscribe(success => 
+    {
+      if (success) 
+      {
+        
+        console.log('jwtToken');
+        this.router.navigate(['chat']);
+      } 
+      else 
+      {
         console.log('Login failed');
       }
     });
+    
   }
-
-
-  
-  
 }
