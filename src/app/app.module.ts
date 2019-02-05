@@ -20,6 +20,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {RouterModule, Routes} from '@angular/router';
 
+import { CookieService } from 'ngx-cookie-service';
+
 
 const routes: Routes = [
   {
@@ -60,7 +62,8 @@ const routes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true,
-  }],
+    }, CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

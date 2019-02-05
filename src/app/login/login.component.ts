@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../loginService/login.service';
 import { Observable } from 'rxjs';
 import {Router} from "@angular/router";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit
     password: ''
   };
 
-  constructor(private router: Router, private data: LoginService)
+  constructor(private router: Router, private data: LoginService,  private cookieService: CookieService)
   {
 
   }
@@ -42,12 +43,11 @@ export class LoginComponent implements OnInit
   sendReq() 
   {
     this.data.login(this.model.username, this.model.password)
-    .subscribe(success => 
+    .subscribe((success: {token: string}) => 
     {
       if (success) 
       {
-        
-        console.log('jwtToken');
+        this.cookieService.set( 'token', success.token );
         this.router.navigate(['chat']);
       } 
       else 
@@ -58,3 +58,7 @@ export class LoginComponent implements OnInit
     
   }
 }
+
+/*.map(response => { 
+      console.log(response);
+    })*/
