@@ -33,12 +33,11 @@ export class TokenInterceptorService implements HttpInterceptor {
       this.handleAuthError(error);
       return of(error);
     }) as any);
-    // throw new Error('Method not implemented.');
   }
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
-    // handle your auth error or rethrow
+    
     if (err.status === 401) {
-      // navigate /delete cookies or whatever
+      
       console.log('handled error ' + err.status);
 
       return of(err.message);

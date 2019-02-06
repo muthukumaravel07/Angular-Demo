@@ -8,6 +8,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule, MatDividerModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -19,8 +21,8 @@ export interface Tile {
   }
 
 @NgModule({
-    imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
-    exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
+    imports: [MatSelectModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
+    exports: [MatSelectModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
   })
   export class MaterialModule { 
     tiles: Tile[] = [

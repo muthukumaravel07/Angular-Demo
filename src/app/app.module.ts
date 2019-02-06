@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatInputComponent } from './chat-input/chat-input.component';
-import { ChatMsgComponent } from './chat-msg/chat-msg.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -44,8 +42,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ChatInputComponent,
-    ChatMsgComponent,
     ChatWindowComponent,
     LoginComponent
   ],

@@ -5,6 +5,10 @@ import { Observable } from 'rxjs';
 import {Router} from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
 
+export interface Office {
+  name: string;
+}
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -13,6 +17,23 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class LoginComponent implements OnInit
 {
+
+  officeControl = new FormControl('', [Validators.required]);
+  office: Office[] = [
+    {name: 'VL1'},
+    {name: 'VL2'},
+    {name: 'VL3'},
+    {name: 'VL4'},
+  ];
+  projectControl = new FormControl('', [Validators.required]);
+  project: Office[] = [
+    {name: 'P1'},
+    {name: 'P2'},
+    {name: 'P3'},
+    {name: 'P4'},
+  ];
+  
+  
   model = {
     username: '',
     password: ''

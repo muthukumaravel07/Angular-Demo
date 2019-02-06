@@ -5,15 +5,6 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import 'rxjs/add/operator/map';
 
-/* const httpOptions = {
-  headers: new HttpHeaders(
-    {
-      'Content-Type':  'application/json'
-    }
-  )
-}; */
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -32,9 +23,5 @@ export class LoginService
   loggedIn() {
     return !!this.cookie.get('jwtToken');
   }
-
-  /* getUsesr(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
-  } */
   
 }

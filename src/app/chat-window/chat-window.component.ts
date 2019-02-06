@@ -9,7 +9,7 @@ import { LoginService } from '../loginService/login.service';
 })
 export class ChatWindowComponent /* implements OnInit */
 {
-  title = 'projectCB';
+/*   title = 'projectCB';
   userInput: string;
   messages=['Finally Something is Working'];
   users$: object;
@@ -18,18 +18,16 @@ export class ChatWindowComponent /* implements OnInit */
   {
 
   }
+  send(): void {
+  this.messages.push(this.userInput);
+  this.userInput = null;
+  } */ 
 
- /*  ngOnInit()
+   /*  ngOnInit()
   {
     this.data.getUsesr().subscribe(
       data => this.users$ = data
     )
 
   } */
-  
-
-  send(): void {
-  this.messages.push(this.userInput);
-  this.userInput = null;
-} 
 }
