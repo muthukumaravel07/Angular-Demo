@@ -1,0 +1,24 @@
+/* .main-div
+{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-card 
+{
+  position: relative;
+ 
+} */
+.one
+{
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+.space
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 20px
+}

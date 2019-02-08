@@ -1,34 +1,56 @@
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import { NgModule } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatInputModule} from '@angular/material/input';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule, MatDividerModule} from '@angular/material';
+import { NgModule } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { 
+  MatFormFieldModule, 
+  MatDividerModule, 
+  MatToolbarModule, 
+  MatIconModule, 
+  MatMenuModule, 
+  MatInputModule, 
+  MatGridListModule, 
+  MatCardModule, 
+  MatSelectModule,
+  MatButtonModule, 
+  MatCheckboxModule, MatSidenavModule, MatListModule
+} from '@angular/material';
+
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
+import { MatRadioModule} from '@angular/material';
 
-
-export interface Tile {
-    color: string;
-    cols: number;
-    rows: number;
-    text: string;
+@NgModule(
+  {
+    imports: 
+    [
+      MatSelectModule, 
+      MatButtonModule, 
+      MatCheckboxModule, 
+      MatToolbarModule, 
+      MatIconModule, 
+      MatMenuModule, 
+      MatInputModule, 
+      MatGridListModule, 
+      MatCardModule, 
+      MatFormFieldModule, 
+      MatDividerModule, 
+      FormsModule, MatSidenavModule, MatListModule, FlexLayoutModule, MatRadioModule
+    ],
+    exports: 
+    [
+      MatSelectModule, 
+      MatButtonModule, 
+      MatCheckboxModule, 
+      MatToolbarModule, 
+      MatIconModule, 
+      MatMenuModule, 
+      MatInputModule, 
+      MatGridListModule, 
+      MatCardModule, 
+      MatFormFieldModule, 
+      MatDividerModule, 
+      FormsModule, MatSidenavModule, MatListModule, FlexLayoutModule, MatRadioModule
+    ],
   }
-
-@NgModule({
-    imports: [MatSelectModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
-    exports: [MatSelectModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatInputModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatDividerModule, FormsModule],
-  })
-  export class MaterialModule { 
-    tiles: Tile[] = [
-        {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-        {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-        {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-        {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-      ];
-  }
+)
+export class MaterialModule {   }

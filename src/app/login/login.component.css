@@ -1,72 +1,59 @@
-  .main-div{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.main-div
+{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
+.example-form 
+{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
   
-  .example-full-width {
-    width: 100%;
-  }
+.example-full-width 
+{
+  width: 100%;
+}
 
-  .a{
-    float: right;
-  }
+.a
+{
+  float: right;
+}
   
-  
-
-  .example-card {
-    position: relative;
+.example-card 
+{
+  position: relative;
  
-  }
+}
   
-  /* .circle {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    position: absolute;
-    top: -0%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    padding: 0% 0;
-    border-radius: 50%;
-    background:#eee url(https://cdn5.vectorstock.com/i/1000x1000/90/24/puzzle-pieces-icon-on-round-blue-background-vector-18429024.jpg);
-    margin-left: auto;
-    margin-right: auto;
-    border-style: solid;
-    border-color: red green blue yellow;
-  } */
+.avatar
+{
+  position: relative;
+  top: -0%;
+  left: 21%;
+  justify-content: center;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 200px;height: 200px;
+  margin: 0px auto -75px;
+  border-radius: 100%;
+  border: 2px solid #aaa;
+  background-size: cover;
+}
 
-  .avatar{
-    
-      position: relative;
-      top: -0%;
-      left: 25%;
-      justify-content: center;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      max-width: 200px;height: 200px;
-      margin: 0px auto -75px;
-      border-radius: 100%;
-      border: 2px solid #aaa;
-      background-size: cover;
-  }
-  .img {
-    border-radius: 100%;
-    max-width: 200px;height: 200px;
-  }
-  .left {
-    float: left;
-  }
+.img 
+{
+  border-radius: 100%;
+  max-width: 200px;height: 200px;
+}
+
+.left 
+{
+  float: left;
+}
   
 
 
