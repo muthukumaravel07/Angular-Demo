@@ -3,7 +3,7 @@
 
 body
 {
-  background: #eee url(./assets/BG.jpg);
+  background: #eee url(./assets/BG.jpg) no-repeat fixed center;
 }
 html,body
 {
